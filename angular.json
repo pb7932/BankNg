@@ -30,7 +30,9 @@
               "semantic/dist/semantic.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "semantic/dist/semantic.js"
+            ]
           },
           "configurations": {
             "production": {

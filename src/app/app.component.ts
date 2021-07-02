@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as $  from 'jquery';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bankNg';
+
+  toggleSidebar() {
+    //toggle sidebar, not able to import sidebbar toggle function from fomantic-ui
+  }
 }
