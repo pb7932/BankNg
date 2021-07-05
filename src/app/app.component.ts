@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import * as $  from 'jquery';
+import { Component, OnInit } from '@angular/core';
+declare var jQuery: any;
 
 
 @Component({
@@ -7,10 +7,18 @@ import * as $  from 'jquery';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  
   title = 'bankNg';
 
+  leftSidebar: any;
+
+  ngOnInit(): void {
+   this.leftSidebar = jQuery('#sidebar').sidebar('setting', 'transition', 'overlay');
+   console.log(this.leftSidebar)
+  }
+
   toggleSidebar() {
-    //toggle sidebar, not able to import sidebbar toggle function from fomantic-ui
+    this.leftSidebar.sidebar('toggle');
   }
 }
