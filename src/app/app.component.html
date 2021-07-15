@@ -1,24 +1,10 @@
-<div id="sidebar" class="ui left vertical inverted sidebar labeled icon menu">
-  <a class="item">
-    <i class="home icon"></i>
-    Home
-  </a>
-  <a class="item">
-    <i class="wallet icon"></i>
-    Transactions
-  </a>
-  <a class="item">
-    <i class="warehouse icon"></i>
-    Departments
-  </a>
-  <a class="item">
-    <i class="tasks icon"></i>
-   Tasks
-  </a>
+<app-header></app-header>
+<div class="ui equal width grid">
+    <div >
+        <app-left-menu></app-left-menu>
+    </div>
+    <div class="column">
+        <router-outlet></router-outlet>
+    </div>
 </div>
-<div class="space-above">
-  <button class="ui right attached icon button" (click)="toggleSidebar()">
-    Menu
-    <i class="large arrow alternate circle right outline icon open-sidebar"></i>
-  </button>
-</div>
+<app-footer></app-footer>

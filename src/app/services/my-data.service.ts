@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BaseDataService } from './base-data.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.dev';
 
 @Injectable({
   providedIn: 'root'
