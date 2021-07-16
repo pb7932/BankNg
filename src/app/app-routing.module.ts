@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MjestaRoutes } from './view/bank/mjesta/mjesta-routing';
 import { ZavodiRoutes } from './view/bank/zavodi/zavodi-routing';
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
 
   //bank
   ...ZavodiRoutes,
-
+  ...MjestaRoutes,
 
   //default route
   {
