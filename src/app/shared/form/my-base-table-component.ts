@@ -15,7 +15,7 @@ export abstract class MyBaseTableComponent extends MyBaseComponent {
         super(router1, route1, routeCtx1);
     }
 
-    public items: BaseResponseDTO[];
+    public items: any;
 
     initForm() {
         this.items = [];

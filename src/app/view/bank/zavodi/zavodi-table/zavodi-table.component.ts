@@ -20,6 +20,10 @@ export class ZavodiTableComponent extends MyBaseTableComponent {
    }
 
   myNgOnInit() {
-    
+
+  }
+
+  showItems() {
+    console.log(this.items);
   }
 }

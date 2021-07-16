@@ -1,1 +1,14 @@
-<p>zavodi-table works!</p>
+<table class="ui celled table" style="margin-top: 1rem;">
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Sifra zavoda</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td>{{item.naziv}}</td>
+            <td>{{item.sif_zavod}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -21,7 +21,7 @@ export class MyDataService extends BaseDataService{
   }
 
   public getRequest(name: string): Observable<any> {
-    const method = environment.apiUri + 'api/bank' + name;
+    const method = environment.apiUri + 'api/bank/' + name;
 
     return this.get(method);
   }
