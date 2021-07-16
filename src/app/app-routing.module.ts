@@ -7,13 +7,18 @@ const routes: Routes = [
   {
     path: 'login', pathMatch: 'full', loadChildren: () => import('./view/login/login.module').then(m => m.LoginModule)
   },
+  {
+    path: 'home', pathMatch: 'full', redirectTo: 'zavodi-view'
+  },
 
   //bank
   ...ZavodiRoutes,
 
+
+  //default route
   {
     path: '',
-    redirectTo: 'zavodi-view', pathMatch: 'full'
+    redirectTo: 'login'
   }
   
 ];

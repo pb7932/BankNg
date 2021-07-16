@@ -21,5 +21,11 @@
                 </div>
             </div>
         </form>
+        
+        <div *ngIf="errMsg | async">
+            <div id="my-msg" class="ui column warning message">
+                <p>{{errMsg | async}}</p>
+            </div>
+        </div>
     </div>
 </div>
