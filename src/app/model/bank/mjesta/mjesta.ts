@@ -17,3 +17,7 @@ export class MjestoResponseDTO extends BaseResponseDTO {
 export class MjestoListResponseDTO extends BaseResponseDTO {
     public items?: MjestoDTO[];
 }
+
+export class MjestaHelper {
+    public static routeName: 'mjesta'
+}

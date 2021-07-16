@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ZavodiHelper } from 'src/app/model/bank/zavodi/zavodi';
 import { MyDataService } from 'src/app/services/my-data.service';
 import { MyBaseViewComponent } from 'src/app/shared/form/my-base-view.component';
 
@@ -16,7 +17,7 @@ export class ZavodiViewComponent extends MyBaseViewComponent {
     private routeView1: ActivatedRoute,
     private myDataService1: MyDataService
   ) { 
-    super(routerView1, routeView1, myDataService1, 'zavodi');
+    super(routerView1, routeView1, myDataService1, ZavodiHelper.routeName);
   }
 
   myNgOnInit(): void {
@@ -24,6 +25,10 @@ export class ZavodiViewComponent extends MyBaseViewComponent {
   }
 
   ngAfterViewInit(): void {
+    this.zavodi.fetchData('getzavodi');
+  }
+
+  reload() {
     this.zavodi.fetchData('getzavodi');
   }
 }

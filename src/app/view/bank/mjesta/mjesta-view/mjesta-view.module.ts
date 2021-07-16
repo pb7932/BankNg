@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { MjestaViewRoutingModule } from './mjesta-view-routing.module';
 import { MjestaViewComponent } from './mjesta-view.component';
+import { MjestaTableComponent } from '../mjesta-table/mjesta-table.component';
 
 
 @NgModule({
   declarations: [
-    MjestaViewComponent
+    MjestaViewComponent,
+    MjestaTableComponent
   ],
   imports: [
     CommonModule,

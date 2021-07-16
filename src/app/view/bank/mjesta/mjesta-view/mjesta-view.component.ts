@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MjestaHelper } from 'src/app/model/bank/mjesta/mjesta';
+import { MyDataService } from 'src/app/services/my-data.service';
+import { MyBaseViewComponent } from 'src/app/shared/form/my-base-view.component';
 
 @Component({
   selector: 'app-mjesta-view',
   templateUrl: './mjesta-view.component.html',
   styleUrls: ['./mjesta-view.component.css']
 })
-export class MjestaViewComponent implements OnInit {
+export class MjestaViewComponent extends MyBaseViewComponent {
+  @ViewChild('mjesta') mjesta;
 
-  constructor() { }
+  constructor(
+    private routerView1: Router,
+    private routeView1: ActivatedRoute,
+    private myDataService1: MyDataService,
+  ) 
+  { 
+    super(routerView1, routeView1, myDataService1, MjestaHelper.routeName)
+  }
 
-  ngOnInit(): void {
+  myNgOnInit() {
+
+  }
+
+  ngAfterViewInit() {
+    this.mjesta.fetchData('getmjesta');
+  }
+
+  reload() {
+    this.mjesta.fetchData('getmjesta');
   }
 
 }

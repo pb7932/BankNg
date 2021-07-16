@@ -1,1 +1,14 @@
-<p>mjesta-table works!</p>
+<table class="ui green celled table" style="margin-top: 1rem;">
+    <thead>
+        <tr>
+            <th>Postanski Broj</th>
+            <th>Naziv</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td>{{item.pbr}}</td>
+            <td>{{item.naziv}}</td>
+        </tr>
+    </tbody>
+</table>

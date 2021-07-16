@@ -1,1 +1,23 @@
-<p>mjesta-view works!</p>
+<div class="ui container">
+    <div class="ui raised segment">
+        <a class="ui red ribbon label">Mjesta</a>
+        <div class="ui five column grid" style="margin-top: 1rem;">
+            <div class="row">
+                <div class="column">
+                    <button class="ui primary labeled icon button">
+                        <i class="plus icon"></i>
+                        Novo Mjesto
+                    </button>
+                </div>
+                <div class="column">
+                    <button class="ui primary labeled icon button" (click)="reload()">
+                        <i class="redo alternate icon"></i>
+                        Osvjezi
+                    </button>
+                </div>
+            </div>
+        </div>
+        <app-mjesta-table #mjesta></app-mjesta-table>
+    </div>
+
+</div>
