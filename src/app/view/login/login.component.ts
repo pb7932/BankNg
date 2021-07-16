@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     setTimeout(() => {
-      jQuery('#my-app-header,#my-left-menu.#my-app-footer').show();
+      jQuery('#my-app-header,#my-left-menu,#my-app-footer').show();
       this.router.navigate(['/']);
     },100)
   }

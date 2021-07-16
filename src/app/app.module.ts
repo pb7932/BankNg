@@ -14,7 +14,7 @@ import { LeftMenuComponent } from './view/layout/left-menu/left-menu.component';
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
   ],
   imports: [
     BrowserModule,

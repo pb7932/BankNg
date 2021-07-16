@@ -1,14 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ZavodiRoutes } from './view/bank/zavodi/zavodi-routing';
 
 const routes: Routes = [
+  //login
   {
-    path: 'login', loadChildren: () => import('./view/login/login.module').then(m => m.LoginModule)
+    path: 'login', pathMatch: 'full', loadChildren: () => import('./view/login/login.module').then(m => m.LoginModule)
   },
+
+  //bank
+  ...ZavodiRoutes,
+
   {
     path: '',
-    redirectTo: '/login', pathMatch: 'full'
+    redirectTo: 'zavodi-view', pathMatch: 'full'
   }
+  
 ];
 
 @NgModule({
