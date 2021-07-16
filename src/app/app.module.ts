@@ -19,7 +19,7 @@ import { LeftMenuComponent } from './view/layout/left-menu/left-menu.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [MyDataService],
   bootstrap: [AppComponent]
