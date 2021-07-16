@@ -18,3 +18,7 @@ export class ZavodResponseDTO extends BaseResponseDTO {
 export class ZavodListResponseDTO extends BaseResponseDTO {
     public items?: ZavodDTO[];
 }
+
+export class ZavodiHelper {
+    public static routeName: 'zavodi';
+}
