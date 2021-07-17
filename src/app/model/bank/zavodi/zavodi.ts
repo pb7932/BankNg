@@ -20,5 +20,5 @@ export class ZavodListResponseDTO extends BaseResponseDTO {
 }
 
 export class ZavodiHelper {
-    public static routeName: 'zavodi';
+    public static routeName = 'zavodi';
 }

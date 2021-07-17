@@ -26,4 +26,8 @@ export class ZavodiTableComponent extends MyBaseTableComponent {
   showItems() {
     console.log(this.items);
   }
+
+  fetchDataOk() {
+    
+  }
 }

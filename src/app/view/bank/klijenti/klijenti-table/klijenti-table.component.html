@@ -1,1 +1,26 @@
-<p>klijenti-table works!</p>
+<table class="ui stripped table" style="margin-top: 1rem;">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Adresa</th>
+            <th>Postanski broj</th>
+            <th>Datum rodjenja</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="items">
+            <tr *ngFor="let item of items">
+                <td>{{item.child.ime}}</td>
+                <td>{{item.child.prezime}}</td>
+                <td>{{item.child.adresa}}</td>
+                <td>{{item.child.pbr}}</td>
+                <td>{{item.datum_rod}}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+<ng-container *ngIf="errMsg">
+    <p class='ui warning message'>{{errMsg}}</p>
+</ng-container>
+

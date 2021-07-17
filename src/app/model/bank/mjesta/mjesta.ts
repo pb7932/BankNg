@@ -19,5 +19,5 @@ export class MjestoListResponseDTO extends BaseResponseDTO {
 }
 
 export class MjestaHelper {
-    public static routeName: 'mjesta'
+    public static routeName = 'mjesta'
 }

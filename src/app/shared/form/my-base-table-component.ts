@@ -1,5 +1,6 @@
 import { Directive } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Observable, of } from "rxjs";
 import { BaseResponseDTO } from "src/app/model/DTO/base-response-DTO";
 import { MyDataService } from "src/app/services/my-data.service";
 import { MyBaseComponent } from "./my-base.component";
@@ -21,24 +22,48 @@ export abstract class MyBaseTableComponent extends MyBaseComponent {
         this.items = [];
     }
 
-    public fetchData(name: string) {
-        setTimeout(() => {
-            this.fetchData_INT(name);
-        }, 100)
+    public fetchData(name: string): void {
+        this.fetchData_INT(name);
     }
 
-    private fetchData_INT(name: string) {
+    private fetchData_INT1(name: string): void {
+        let res = this.myDataService.getRequest(name)
+    }
+
+    private fetchData_INT(name: string): void {
         this.myDataService.getRequest(name)
             .subscribe(
                 (res) => {
                     if(res.status == 0) {
                         this.items = res.items;
+                        this.fetchDataOk();
                     }
-                    return;
                 },
                 (error) => {
                     //display error
                 }
             )
     }
+
+    public fetchDataById(name: string, id: number, obj?: any) {
+        this.fetchDataById_INT(name + '/' + id, obj)
+    }
+
+    private fetchDataById_INT(method: string, obj) {
+        this.myDataService.getRequest(method)
+            .subscribe(
+                (res) => {
+                    if(res.status == 0) {
+                        obj.child = res.item;
+                    }
+
+                    return; 
+                },
+                (error) => {
+                    //display error
+                }
+            )
+    }
+
+    abstract fetchDataOk();
 }

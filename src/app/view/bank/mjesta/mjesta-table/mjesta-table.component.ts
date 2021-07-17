@@ -22,4 +22,8 @@ export class MjestaTableComponent extends MyBaseTableComponent {
   myNgOnInit(): void {
   }
 
+  fetchDataOk() {
+    
+  }
+
 }
