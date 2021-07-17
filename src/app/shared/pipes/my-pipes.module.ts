@@ -1,9 +1,11 @@
 import { NgModule } from "@angular/core";
 import { MyDatePipe } from "./my-date.pipe";
+import { MyZavodPipe } from "./my-text.pipe";
 
 
 const MY_PIPES = [
     MyDatePipe,
+    MyZavodPipe,
 ]
 
 @NgModule({
