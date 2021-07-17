@@ -18,3 +18,7 @@ export class KlijentResponseDTO extends BaseResponseDTO {
 export class KlijentListResponseDTO extends BaseResponseDTO {
     public items?: KlijentDTO[];
 }
+
+export class KlijentiHelper {
+    public static routeName: "klijenti";
+}
