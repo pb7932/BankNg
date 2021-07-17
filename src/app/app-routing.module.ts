@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { KlijentiRoutes } from './view/bank/klijenti/klijenti-routing';
 import { MjestaRoutes } from './view/bank/mjesta/mjesta-routing';
+import { ZaposleniciRoutes } from './view/bank/zaposlenici/zaposlenici-routing';
 import { ZavodiRoutes } from './view/bank/zavodi/zavodi-routing';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   ...ZavodiRoutes,
   ...MjestaRoutes,
   ...KlijentiRoutes,
+  ...ZaposleniciRoutes,
 
   //default route
   {
