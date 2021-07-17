@@ -1,1 +1,24 @@
-<p>zaposlenici-view works!</p>
+<div class="ui container">
+    <div class="ui raised segment">
+        <a class="ui red ribbon label">Zaposlenici</a>
+        <div class="ui five column grid" style="margin-top: 1rem;">
+            <div class="row">
+                <div class="column">
+                    <a routerLink={{newFormRoute}}>
+                        <button class="ui primary labeled icon button">
+                            <i class="plus icon"></i>
+                            Novi Zaposlenik
+                        </button>
+                    </a>
+                </div>
+                <div class="column">
+                    <button class="ui primary labeled icon button" (click)="reload()">
+                        <i class="redo alternate icon"></i>
+                        Osvjezi
+                    </button>
+                </div>
+            </div>
+        </div>
+        <app-zaposlenici-table #zaposlenici></app-zaposlenici-table>
+    </div>
+</div>

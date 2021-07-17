@@ -1,1 +1,21 @@
-<p>zaposlenici-table works!</p>
+<table class="ui celled table" style="margin-top:  1rem;">
+    <thead>
+        <tr>
+            <th class="six wide">Ime</th>
+            <th class="six wide">Prezime</th>
+            <th class="four wide">Sifra Zavoda</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="items">
+            <tr *ngFor="let item of items">
+                <td>{{ item.child.ime }}</td>
+                <td>{{ item.child.prezime }}</td>
+                <td>{{item.data.sif_zavod}}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+    <ng-container *ngIf="!items">
+        <p class="ui warning message">{{errMsg}}</p>
+    </ng-container>
+</table>

@@ -17,3 +17,7 @@ export class ZaposlenikResponseDTO extends BaseResponseDTO {
 export class ZaposlenikListResponseDTO extends BaseResponseDTO {
     public items?: ZaposlenikDTO[];
 }
+
+export class ZaposleniciHelper {
+    public static routeName = 'zaposlenici'
+}

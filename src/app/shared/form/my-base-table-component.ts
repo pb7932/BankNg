@@ -45,14 +45,32 @@ export abstract class MyBaseTableComponent extends MyBaseComponent {
         this.fetchDataById_INT(name + '/' + id, obj)
     }
 
-    private fetchDataById_INT(method: string, obj) {
+    private fetchDataById_INT(method: string, obj: any) {
         this.myDataService.getRequest(method)
             .subscribe(
                 (res) => {
                     if(res.status == 0) {
                         obj.child = res.item;
                     }
+                    return; 
+                },
+                (error) => {
+                    //display error
+                }
+            )
+    }
 
+    public fetchDataById2(name: string, id: number, obj?: any) {
+        this.fetchDataById_INT2(name + '/' + id, obj)
+    }
+
+    private fetchDataById_INT2(method: string, obj: any) {
+        this.myDataService.getRequest(method)
+            .subscribe(
+                (res) => {
+                    if(res.status == 0) {
+                        obj.data = res.item;
+                    }
                     return; 
                 },
                 (error) => {
