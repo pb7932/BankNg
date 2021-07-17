@@ -26,10 +26,6 @@ export abstract class MyBaseTableComponent extends MyBaseComponent {
         this.fetchData_INT(name);
     }
 
-    private fetchData_INT1(name: string): void {
-        let res = this.myDataService.getRequest(name)
-    }
-
     private fetchData_INT(name: string): void {
         this.myDataService.getRequest(name)
             .subscribe(
