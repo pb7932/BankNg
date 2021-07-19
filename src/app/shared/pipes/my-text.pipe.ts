@@ -6,7 +6,7 @@ export class MyZavodPipe implements PipeTransform {
         let newZavod = '';
         newZavod =  `<div class="ui label">
                         <i class="sitemap icon"></i>
-                        ${{value}}
+                        ${value}
                     </div>`
         return newZavod;
     }
