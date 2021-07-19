@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MjestaFormRoutingModule } from './mjesta-form-routing.module';
 import { MjestaFormComponent } from '../mjesta-form/mjesta-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { MjestaFormComponent } from '../mjesta-form/mjesta-form.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MjestaFormRoutingModule
   ]
 })

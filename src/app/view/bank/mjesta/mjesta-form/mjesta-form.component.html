@@ -1,1 +1,36 @@
-<p>mjesta-form works!</p>
+<div class="ui container" style="margin-top: 3rem;">
+    <div class="ui raised segment">
+        <<ng-container *ngIf="!isEdit">
+            <div class="ui top attached label">Dodaj Novo Mjesto</div>
+        </ng-container>
+        <<ng-container *ngIf="isEdit">
+            <div class="ui top attached label">Izmijeni Podatke Mjesta</div>
+        </ng-container>
+        <div class="ui five column grid">
+            <div class="column">
+                <button class="ui primary button" (click)="reload()">Ponovno ucitaj</button>
+            </div>
+        </div>
+        <div class="ui form" style="margin-top: 1rem;">
+            <form action="#">
+                <div class="field">
+                    <label for="pbr">Postanski Broj: </label>
+                    <input type="text" id="pbr" name="pbr" placeholder="Upisi Postanski Broj Mjesta"
+                            [(ngModel)]="item.data.pbr">
+                </div>
+                <div class="field">
+                    <label for="naziv">Naziv: </label>
+                    <input type="text" id="naziv" name="naziv" placeholder="Upisi Naziv Mjesta" 
+                            [(ngModel)]="item.data.naziv">
+                </div>
+                <button class="ui button" (click)="saveForm()">Spremi</button>
+            </form>
+        </div>
+        <ng-container *ngIf="errMsg">
+            <p class="ui warning message">{{errMsg}}</p>
+        </ng-container>
+        <ng-container *ngIf="saved">
+            <p class="ui success message">Podatci uspjesno spremljeni!</p>
+        </ng-container>
+    </div>
+</div>

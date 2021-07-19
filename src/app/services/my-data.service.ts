@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BaseDataService } from './base-data.service';
 import { environment } from 'src/environments/environment';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +26,10 @@ export class MyDataService extends BaseDataService{
 
     return this.get(method);
   }
+
+  public getById(name: string, id: number): Observable<any> {
+    const method = environment.apiUri + 'api/bank/' + name + '/' + id;
+
+    return this.get(method)
+  } 
 }
