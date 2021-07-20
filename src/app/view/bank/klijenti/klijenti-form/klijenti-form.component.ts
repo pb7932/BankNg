@@ -55,13 +55,21 @@ export class KlijentiFormComponent extends MyBaseFormComponent {
     this.myDataService1.getRequest('get' + OsobeHelper.routeName).subscribe(
       res => {
         this.osobe = res.items;
+
+        this.getOsobeIfFromRoute();
       }
     )
   }
 
-  saveFormOK() {
+  getOsobeIfFromRoute() {
+    let idOsoba = this.routeForm1.snapshot.paramMap.get('io');
 
+    this.item.data.id_osoba = +idOsoba;
+
+    this.onSelect();
   }
+
+  saveFormOK() { }
 
   fetchDataOK() { }
 

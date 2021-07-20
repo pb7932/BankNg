@@ -11,10 +11,10 @@
                 <button class="ui primary button" (click)="reload()">Ponovno ucitaj</button>
             </div>
             <div class="column">
-                <a routerLink='../osobe-form-new'><button class="ui primary button" >Dodaj novu osobu</button></a>
+                <a [routerLink]="['../osobe-form-new', {f:'z'}]"><button class="ui primary button" >Dodaj novu osobu</button></a>
             </div>
             <div class="column">
-                <a routerLink='../zavodi-form-new'><button class="ui primary button" >Dodaj novi zavod</button></a>
+                <a [routerLink]="['../zavodi-form-new', {f:'z'}]"><button class="ui primary button" >Dodaj novi zavod</button></a>
             </div>
         </div>
         <div class="ui form" style="margin-top: 1rem;">

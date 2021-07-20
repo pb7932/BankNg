@@ -29,7 +29,7 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
   public selectedZavod: ZavodDTO;
   public mjesta: MjestoDTO[];
   
-  myNgOnInit() { 
+  myNgOnInit() {
     this.getOsobeSelect();
     this.getZavodiSelect();
     this.getMjestaSelect();

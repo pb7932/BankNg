@@ -58,6 +58,9 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
                   if(res.status == 1) {
                     this.saved = true;
 
+                    //save the id bcs it might be used for query params
+                    if(res.id) this.itemId = res.id;
+
                     this.saveFormOK();
                   }
                   else {
