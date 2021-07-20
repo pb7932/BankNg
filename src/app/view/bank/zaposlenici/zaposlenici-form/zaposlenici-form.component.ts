@@ -47,6 +47,8 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
     this.myDataService1.getRequest('get' + OsobeHelper.routeName).subscribe(
       res => {
         this.osobe = res.items;
+
+        this.getOsobeIdFromRoute();
       }
     )
   }
@@ -55,6 +57,8 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
     this.myDataService1.getRequest('get' + ZavodiHelper.routeName).subscribe(
       res => {
         this.zavodi = res.items;
+
+        this.getZavodiIdFromRoute();
       }
     )
   }
@@ -65,6 +69,22 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
         this.mjesta = res.items;
       }
     )
+  }
+
+  getOsobeIdFromRoute() {
+    let idOsoba = this.routeForm1.snapshot.paramMap.get('io');
+
+    this.item.data.id_osoba = +idOsoba;
+
+    this.onSelectOsoba();
+  }
+
+  getZavodiIdFromRoute() {
+    let idZavod = this.routeForm1.snapshot.paramMap.get('iz');
+
+    this.item.data.id_zavod = +idZavod;
+
+    this.onSelectZavod();
   }
 
   saveFormOK() {

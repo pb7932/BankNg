@@ -24,6 +24,7 @@
                             [(ngModel)]="item.data.sif_zavod">
                 </div>
                 <button class="ui button" (click)="saveForm()">Spremi</button>
+                <button class="ui button" (click)="saveForm(); return();">Spremi i vrati se natrag</button>
             </form>
         </div>
         <ng-container *ngIf="errMsg">

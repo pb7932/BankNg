@@ -33,4 +33,16 @@ export class ZavodiFormComponent extends MyBaseFormComponent {
   validate() {
     return true;
   }
+
+  return() {
+    for(let i = 0; i < 5; i++) {
+      setTimeout( () => {
+        this.setQueryParamAndNavigateBack();
+      },500); 
+    }
+  }
+
+  setQueryParamAndNavigateBack() {
+    this.routerForm1.navigate(['/zaposlenici-form-new', {iz: this.itemId}])
+  }
 }
