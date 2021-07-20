@@ -57,6 +57,8 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
               res => {
                   if(res.status == 1) {
                     this.saved = true;
+
+                    this.saveFormOK();
                   }
                   else {
                       this.errMsg = 'An error occured while saving data, please try again.'
@@ -66,6 +68,8 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
           )
         }
     }
+
+    abstract saveFormOK();
 
     //update edited item
     public editForm() {
@@ -84,6 +88,7 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
     }
 
     //validate form inputs before passing data to repo
+    //tu se postavlja error message
     abstract validate();
     
     public getIdFromUrl(): number {

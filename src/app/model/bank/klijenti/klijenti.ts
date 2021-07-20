@@ -4,7 +4,7 @@ import { BaseResponseDTO } from "../../DTO/base-response-DTO";
 export class KlijentDTO {
     public id: number;
     public id_osoba: number;
-    public datum_rod: Date;
+    public datum_rod: string;
 }
 
 export class KlijentRequestDTO extends BaseRequestDTO {

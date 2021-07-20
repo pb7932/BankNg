@@ -21,3 +21,7 @@ export class OsobaResponseDTO extends BaseResponseDTO {
 export class OsobaListResponseDTO extends BaseResponseDTO {
     public items?: OsobaDTO[]
 }
+
+export class OsobeHelper {
+    public static routeName = 'osobe'
+}

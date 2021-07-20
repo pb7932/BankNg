@@ -31,6 +31,8 @@ export class MjestaFormComponent extends MyBaseFormComponent {
     this.item.data = new MjestoDTO();
   }
 
+  saveFormOK() { }
+
   validate() {
     return true;
   }

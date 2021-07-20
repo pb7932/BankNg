@@ -26,6 +26,8 @@ export class ZavodiFormComponent extends MyBaseFormComponent {
     this.item.data = new ZavodDTO();
   }
 
+  saveFormOK() { }
+
   fetchDataOK() { }
 
   validate() {
