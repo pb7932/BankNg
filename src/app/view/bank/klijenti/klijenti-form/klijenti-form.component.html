@@ -53,9 +53,10 @@
                     </div>
                     <div class="field">
                         <label>Mjesto: </label>
-                        <select class="ui fluid dropdown" name="pbr"disabled>
+                        <select class="ui fluid dropdown" name="pbr" disabled 
+                            [ngModel]="selectedOsoba.pbr">
                             <ng-container *ngFor="let mjesto of mjesta">
-                                <option value="{{mjesto.pbr}}" [selected]="mjesto.pbr == 10000">{{mjesto.naziv}}</option>
+                                <option value="{{mjesto.pbr}}">{{mjesto.naziv}}</option>
                             </ng-container>
                         </select>
                     </div>

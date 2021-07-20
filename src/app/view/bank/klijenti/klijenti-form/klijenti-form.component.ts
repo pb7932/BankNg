@@ -20,9 +20,7 @@ export class KlijentiFormComponent extends MyBaseFormComponent {
     private routeForm1: ActivatedRoute,
     private myDataService1: MyDataService,
   ) { 
-    super(routerForm1, routeForm1, myDataService1, KlijentiHelper.routeName)
-
-    this.selectedOsoba = new OsobaDTO();
+    super(routerForm1, routeForm1, myDataService1, KlijentiHelper.routeName);
   }
 
   public mjesta: MjestoDTO[];
@@ -41,6 +39,8 @@ export class KlijentiFormComponent extends MyBaseFormComponent {
   initForm() {
     this.item = new KlijentRequestDTO();
     this.item.data = new KlijentDTO();
+
+    this.selectedOsoba = new OsobaDTO();
   }
 
   getMjestaSelect() {
