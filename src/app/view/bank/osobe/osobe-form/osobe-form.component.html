@@ -1,1 +1,59 @@
-<p>osobe-form works!</p>
+<div class="ui container" style="margin-top: 1rem;">
+    <div class="ui raised segment">
+        <<ng-container *ngIf="!isEdit">
+            <div class="ui top attached label">Dodavanje Nove Osobe</div>
+        </ng-container>
+        <<ng-container *ngIf="isEdit">
+            <div class="ui top attached label">Izmijena Podataka Osobe</div>
+        </ng-container>
+        <div class="ui five column grid">
+            <div class="column">
+                <button class="ui primary button" (click)="reload()">Ponovno ucitaj</button>
+            </div>
+        </div>
+        <div class="ui form" style="margin-top: 1rem;">
+            <form action="#">
+                
+                    <div class="field">
+                        <label for="ime">Ime: </label>
+                        <input type="text" id="ime" name="ime" 
+                                placeholder="Upisi Ime Klijenta" 
+                                [(ngModel)]="item.data.ime">
+                    </div>
+                    <div class="field">
+                        <label for="prezime">Prezime: </label>
+                        <input type="text" id="prezime" name="prezime" 
+                                placeholder="Upisi Prezime Klijenta" 
+                                [(ngModel)]="item.data.prezime">
+                    </div>
+                    <div class="field">
+                        <label for="oib">OIB: </label>
+                        <input type="text" id="oib" name="oib" 
+                                placeholder="Upisi OIB Klijenta" 
+                                [(ngModel)]="item.data.oib">
+                    </div>
+                    <div class="field">
+                        <label for="adresa">Adresa: </label>
+                        <input type="text" id="adresa" name="adresa" 
+                                placeholder="Upisi Adresu Klijenta" 
+                                [(ngModel)]="item.data.adresa">
+                    </div>
+                    <div class="field">
+                        <label>Mjesto: </label>
+                        <select class="ui fluid dropdown" name="pbr" [(ngModel)]="item.data.pbr">
+                            <ng-container *ngFor="let mjesto of mjesta">
+                                <option value="{{mjesto.pbr}}" [selected]="mjesto.pbr == 10000">{{mjesto.naziv}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                <button class="ui button" (click)="saveForm()">Spremi</button>
+            </form>
+        </div>
+        <ng-container *ngIf="errMsg">
+            <p class="ui warning message">{{errMsg}}</p>
+        </ng-container>
+        <ng-container *ngIf="saved">
+            <p class="ui success message">Podatci uspjesno spremljeni!</p>
+        </ng-container>
+    </div>
+</div>
