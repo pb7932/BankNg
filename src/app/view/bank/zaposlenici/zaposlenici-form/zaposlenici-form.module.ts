@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ZaposleniciFormRoutingModule } from './zaposlenici-form-routing.module';
 import { ZaposleniciFormComponent } from './zaposlenici-form.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { ZaposleniciFormComponent } from './zaposlenici-form.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ZaposleniciFormRoutingModule
   ]
 })

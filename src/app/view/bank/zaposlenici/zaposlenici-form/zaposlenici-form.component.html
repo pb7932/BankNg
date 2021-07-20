@@ -1,1 +1,105 @@
-<p>zaposlenici-form works!</p>
+<div class="ui container" style="margin-top: 1rem;">
+    <div class="ui raised segment">
+        <<ng-container *ngIf="!isEdit">
+            <div class="ui top attached label">Dodavanje Novog Zaposlenika</div>
+        </ng-container>
+        <<ng-container *ngIf="isEdit">
+            <div class="ui top attached label">Izmijena Podatke Zaposlenika</div>
+        </ng-container>
+        <div class="ui five column grid">
+            <div class="column">
+                <button class="ui primary button" (click)="reload()">Ponovno ucitaj</button>
+            </div>
+            <div class="column">
+                <a routerLink='../osobe-form-new'><button class="ui primary button" >Dodaj novu osobu</button></a>
+            </div>
+            <div class="column">
+                <a routerLink='../zavodi-form-new'><button class="ui primary button" >Dodaj novi zavod</button></a>
+            </div>
+        </div>
+        <div class="ui form" style="margin-top: 1rem;">
+            <form action="#">
+                <div class="field">
+                    <label>Osoba: </label>
+                    <select class="ui fluid search dropdown" name="osoba"
+                        [(ngModel)]="item.data.id_osoba" 
+                        (change)="onSelectOsoba()">
+                        <ng-container *ngFor="let osoba of osobe">
+                            <option value="{{osoba.id}}">
+                                {{osoba.ime}} {{osoba.prezime}}, {{osoba.pbr}}, {{osoba.adresa}}
+                            </option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <label for="ime">Ime: </label>
+                        <input type="text" id="ime" name="ime" 
+                                placeholder="Upisi Ime Klijenta" 
+                                disabled
+                                [ngModel]="selectedOsoba.ime">
+                    </div>
+                    <div class="field">
+                        <label for="prezime">Prezime: </label>
+                        <input type="text" id="prezime" name="prezime" 
+                                placeholder="Upisi Prezime Klijenta" 
+                                disabled
+                                [ngModel]="selectedOsoba.prezime">
+                    </div>
+                    
+                    <div class="field">
+                        <label for="adresa">Adresa: </label>
+                        <input type="text" id="adresa" name="adresa" 
+                                placeholder="Upisi Adresu Klijenta" 
+                                disabled
+                                [ngModel]="selectedOsoba.adresa">
+                    </div>
+                    <div class="field">
+                        <label>Mjesto: </label>
+                        <select class="ui fluid dropdown" name="pbr" disabled 
+                            [ngModel]="selectedOsoba.pbr">
+                            <ng-container *ngFor="let mjesto of mjesta">
+                                <option value="{{mjesto.pbr}}">{{mjesto.naziv}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Zavod: </label>
+                    <select class="ui fluid search dropdown" name="zavod"
+                        [(ngModel)]="item.data.id_zavod" 
+                        (change)="onSelectZavod()">
+                        <ng-container *ngFor="let zavod of zavodi">
+                            <option value="{{zavod.id}}">
+                                {{zavod.naziv}}, {{zavod.sif_zavod}}
+                            </option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <label for="naziv">Naziv: </label>
+                        <input type="text" id="naziv" name="naziv" 
+                                placeholder="Naziv Odabranog Zavoda" 
+                                disabled
+                                [ngModel]="selectedZavod.naziv">
+                    </div>
+                    <div class="field">
+                        <label for="sif">Sifra zavoda: </label>
+                        <input type="text" id="sif" name="sif" 
+                                placeholder="Sifra Odabranog Zavoda" 
+                                disabled
+                                [ngModel]="selectedZavod.sif_zavod">
+                    </div>
+                </div>
+                <button class="ui button" (click)="saveForm()">Spremi</button>
+            </form>
+        </div>
+        <ng-container *ngIf="errMsg">
+            <p class="ui warning message">{{errMsg}}</p>
+        </ng-container>
+        <ng-container *ngIf="saved">
+            <p class="ui success message">Podatci uspjesno spremljeni!</p>
+        </ng-container>
+    </div>
+</div>
