@@ -1,9 +1,24 @@
 <table class="ui celled table" style="margin-top:  1rem;">
     <thead>
         <tr>
-            <th class="six wide">Ime</th>
-            <th class="six wide">Prezime</th>
-            <th class="four wide">Sifra Zavoda</th>
+            <th class="six wide">
+                <app-sorter title="Ime" field="ime" 
+                    [init]="true" [sorter]="sorter"
+                    (event)="sort($event)">
+                </app-sorter>
+        </th>
+            <th class="six wide">
+                <app-sorter title="Prezime" field="prezime" 
+                            [sorter]="sorter"
+                            (event)="sort($event)">
+                </app-sorter>
+            </th>
+            <th class="four wide">
+                <app-sorter title="Sifra zavoda" field="sif_zavod" 
+                            [sorter]="sorter"
+                            (event)="sort($event)">
+                </app-sorter>
+            </th>
         </tr>
     </thead>
     <tbody>

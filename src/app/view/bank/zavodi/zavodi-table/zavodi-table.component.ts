@@ -30,4 +30,8 @@ export class ZavodiTableComponent extends MyBaseTableComponent {
   fetchDataOk() {
     
   }
+
+  sort(event: any) {
+    this.fetchData('getzavodi')
+  }
 }

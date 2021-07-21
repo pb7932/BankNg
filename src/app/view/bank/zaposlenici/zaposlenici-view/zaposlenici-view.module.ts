@@ -5,6 +5,7 @@ import { ZaposleniciViewRoutingModule } from './zaposlenici-view-routing.module'
 import { ZaposleniciViewComponent } from './zaposlenici-view.component';
 import { ZaposleniciTableComponent } from '../zaposlenici-table/zaposlenici-table.component';
 import { MyPipesModule } from 'src/app/shared/pipes/my-pipes.module';
+import { MyComponentsModule } from 'src/app/view/components/my-components.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MyPipesModule } from 'src/app/shared/pipes/my-pipes.module';
   imports: [
     CommonModule,
     ZaposleniciViewRoutingModule,
-    MyPipesModule
+    MyPipesModule,
+    MyComponentsModule
   ]
 })
 export class ZaposleniciViewModule { }

@@ -32,7 +32,7 @@ export abstract class MyBaseTableComponent extends MyBaseComponent {
     private fetchData_INT(name: string): void {
         let req = new BaseRequestDTO();
         req.sorter = this.sorter;
-        console.log(this.sorter)
+       
         this.myDataService.postRequest(name, req)
             .subscribe(
                 (res) => {

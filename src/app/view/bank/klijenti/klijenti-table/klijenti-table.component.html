@@ -1,11 +1,36 @@
 <table class="ui stripped table" style="margin-top: 1rem;">
     <thead>
         <tr>
-            <th>Ime</th>
-            <th>Prezime</th>
-            <th>Adresa</th>
-            <th>Postanski broj</th>
-            <th>Datum rodjenja</th>
+            <th>
+                <app-sorter title="Ime" field="ime" 
+                            [init]="true" [sorter]="sorter"
+                            (event)="sort($event)">
+                </app-sorter>
+            </th>
+            <th>
+                <app-sorter title="Prezime" field="prezime" 
+                            [sorter]="sorter"
+                            (event)="sort($event)">
+                </app-sorter>
+            </th>
+            <th>
+                <app-sorter title="Adresa" field="adresa" 
+                            [sorter]="sorter"
+                            (event)="sort($event)">
+                </app-sorter>
+            </th>
+            <th>
+                <app-sorter title="Postanski Broj" field="pbr" 
+                            [sorter]="sorter"
+                            (event)="sort($event)">
+                </app-sorter>
+            </th>
+            <th>
+                <app-sorter title="Datum rodjenja" field="datum_rod" 
+                            [sorter]="sorter"
+                            (event)="sort($event)">
+                </app-sorter>
+            </th>
         </tr>
     </thead>
     <tbody>

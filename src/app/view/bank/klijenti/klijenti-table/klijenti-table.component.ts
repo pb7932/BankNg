@@ -40,4 +40,8 @@ export class KlijentiTableComponent extends MyBaseTableComponent {
       this.errMsg = 'Doslo je do pogreske kod ucitavanja podataka';
     }
   }
+
+  sort(event: any) {
+    this.fetchData('getklijenti')
+  }
 }

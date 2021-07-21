@@ -43,4 +43,8 @@ export class ZaposleniciTableComponent extends MyBaseTableComponent {
     }
   }
 
+  sort(event: any) {
+    this.fetchData('getzaposlenici');
+  }
+
 }

@@ -7,6 +7,7 @@ import { ZavodiTableComponent } from '../zavodi-table/zavodi-table.component';
 import { RouterModule } from '@angular/router';
 import { MyZavodPipe } from 'src/app/shared/pipes/my-text.pipe';
 import { MyPipesModule } from 'src/app/shared/pipes/my-pipes.module';
+import { MyComponentsModule } from 'src/app/view/components/my-components.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MyPipesModule } from 'src/app/shared/pipes/my-pipes.module';
     CommonModule,
     RouterModule,
     MyPipesModule,
-    ZavodiViewRoutingModule
+    ZavodiViewRoutingModule,
+    MyComponentsModule
   ]
 })
 export class ZavodiViewModule { }
