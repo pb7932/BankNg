@@ -26,10 +26,6 @@ export class KlijentiTableComponent extends MyBaseTableComponent {
   myNgOnInit(): void {
   }
 
-  fetchData(name: string) {
-    super.fetchData(name)
-  }
-
   fetchDataOk() {
     if(this.items) {
       for(let klijent of this.items) {
