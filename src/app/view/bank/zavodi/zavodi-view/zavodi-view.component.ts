@@ -26,10 +26,10 @@ export class ZavodiViewComponent extends MyBaseViewComponent {
   }
 
   ngAfterViewInit(): void {
-    this.zavodi.fetchData('getzavodi');
+    this.zavodi.fetchData();
   }
 
   reload() {
-    this.zavodi.fetchData('getzavodi');
+    this.zavodi.fetchData();
   }
 }

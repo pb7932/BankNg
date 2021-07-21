@@ -23,15 +23,17 @@ export class ZavodiTableComponent extends MyBaseTableComponent {
 
   }
 
+  fetchData() {
+    super.fetchData('getzavodi')
+  }
+
+  fetchDataOk() { }
+
   showItems() {
     console.log(this.items);
   }
 
-  fetchDataOk() {
-    
-  }
-
   sort(event: any) {
-    this.fetchData('getzavodi')
+    this.fetchData()
   }
 }

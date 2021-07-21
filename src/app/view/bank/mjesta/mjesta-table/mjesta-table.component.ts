@@ -22,13 +22,16 @@ export class MjestaTableComponent extends MyBaseTableComponent {
   myNgOnInit(): void {
   }
 
+  fetchData() {
+    super.fetchData('getmjesta');
+  }
+
   fetchDataOk() {
     
   }
 
   sort(event: any) {
-    console.log('final destination')
-    this.fetchData('getmjesta')
+    this.fetchData();
   }
 
 }

@@ -26,6 +26,10 @@ export class KlijentiTableComponent extends MyBaseTableComponent {
   myNgOnInit(): void {
   }
 
+  fetchData() {
+    super.fetchData('getklijenti')
+  }
+
   fetchDataOk() {
     if(this.items) {
       for(let klijent of this.items) {
@@ -38,6 +42,6 @@ export class KlijentiTableComponent extends MyBaseTableComponent {
   }
 
   sort(event: any) {
-    this.fetchData('getklijenti')
+    this.fetchData()
   }
 }

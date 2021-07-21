@@ -25,10 +25,10 @@ export class KlijentiViewComponent extends MyBaseViewComponent {
   }
 
   ngAfterViewInit() {
-    this.klijenti.fetchData('getklijenti')
+    this.klijenti.fetchData()
   }
 
   reload() {
-    this.klijenti.fetchData('getklijenti');
+    this.klijenti.fetchData();
   }
 }

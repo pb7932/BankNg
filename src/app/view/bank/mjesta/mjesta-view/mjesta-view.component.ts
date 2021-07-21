@@ -28,11 +28,11 @@ export class MjestaViewComponent extends MyBaseViewComponent {
   }
 
   ngAfterViewInit() {
-    this.mjesta.fetchData('getmjesta');
+    this.mjesta.fetchData();
   }
 
   reload() {
-    this.mjesta.fetchData('getmjesta');
+    this.mjesta.fetchData();
   }
 
 }

@@ -25,11 +25,11 @@ export class ZaposleniciViewComponent extends MyBaseViewComponent {
   }
 
   ngAfterViewInit() {
-    this.zaposlenici.fetchData('getzaposlenici')
+    this.zaposlenici.fetchData()
   }
 
   reload() {
-    this.zaposlenici.fetchData('getzaposlenici')
+    this.zaposlenici.fetchData()
   }
 
 }

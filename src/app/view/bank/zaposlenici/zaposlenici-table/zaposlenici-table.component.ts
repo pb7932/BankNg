@@ -25,6 +25,10 @@ export class ZaposleniciTableComponent extends MyBaseTableComponent {
   myNgOnInit(): void {
   }
 
+  fetchData() {
+    super.fetchData('getzaposlenici');
+  }
+
   fetchDataOk() {
     if(this.items) {
       for(let zaposlenik of this.items) {
@@ -40,7 +44,7 @@ export class ZaposleniciTableComponent extends MyBaseTableComponent {
   }
 
   sort(event: any) {
-    this.fetchData('getzaposlenici');
+    this.fetchData();
   }
 
 }
