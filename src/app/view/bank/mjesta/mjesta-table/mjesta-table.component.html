@@ -1,8 +1,15 @@
 <table class="ui green celled table" style="margin-top: 1rem;">
     <thead>
         <tr>
-            <th>Postanski Broj</th>
-            <th>Naziv</th>
+            <th>
+                <app-sorter title="Postanski Broj" field="pbr" 
+                            [init]="true" [sorter]="sorter"
+                            (event)="sort($event)">
+                </app-sorter>
+            </th>
+            <th><app-sorter title="Naziv" field="naziv" 
+                            [sorter]="sorter"
+                            (event)="sort($event)"></app-sorter></th>
         </tr>
     </thead>
     <tbody>

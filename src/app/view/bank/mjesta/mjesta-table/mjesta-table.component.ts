@@ -26,4 +26,9 @@ export class MjestaTableComponent extends MyBaseTableComponent {
     
   }
 
+  sort(event: any) {
+    console.log('final destination')
+    this.fetchData('getmjesta')
+  }
+
 }

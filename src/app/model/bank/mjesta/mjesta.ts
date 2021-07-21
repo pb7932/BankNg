@@ -1,5 +1,6 @@
 import { BaseRequestDTO } from "../../DTO/base-request-DTO";
 import { BaseResponseDTO } from "../../DTO/base-response-DTO";
+import { MySorter } from "../../DTO/my-sorter";
 
 export class MjestoDTO {
     public pbr: number;
@@ -19,5 +20,7 @@ export class MjestoListResponseDTO extends BaseResponseDTO {
 }
 
 export class MjestaHelper {
-    public static routeName = 'mjesta'
+    public static routeName = 'mjesta';
+    public static field = 'pbr';
+    public static order = 0;
 }

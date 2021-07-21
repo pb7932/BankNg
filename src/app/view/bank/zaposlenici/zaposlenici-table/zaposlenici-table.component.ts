@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ZaposleniciHelper } from 'src/app/model/bank/zaposlenici/zaposlenici';
+import { BaseRequestDTO } from 'src/app/model/DTO/base-request-DTO';
 import { MyDataService } from 'src/app/services/my-data.service';
 import { MyBaseTableComponent } from 'src/app/shared/form/my-base-table-component';
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ZaposleniciHelper } from 'src/app/model/bank/zaposlenici/zaposlenici';
+import { BaseRequestDTO } from 'src/app/model/DTO/base-request-DTO';
 import { MyDataService } from 'src/app/services/my-data.service';
 import { MyBaseViewComponent } from 'src/app/shared/form/my-base-view.component';
 
@@ -28,8 +29,7 @@ export class ZaposleniciViewComponent extends MyBaseViewComponent {
   }
 
   reload() {
-    //this.zaposlenici.fetchData('getzaposlenici')
-    console.log(this.zaposlenici.items)
+    this.zaposlenici.fetchData('getzaposlenici')
   }
 
 }

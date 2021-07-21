@@ -1,5 +1,6 @@
 import { Directive, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { MySorter } from "src/app/model/DTO/my-sorter";
 
 @Directive()
 export abstract class MyBaseComponent implements OnInit{
@@ -22,4 +23,6 @@ export abstract class MyBaseComponent implements OnInit{
 
     public newFormRoute: string;
     public editFormRoute: string;
+
+    public sorter = new MySorter;
 }

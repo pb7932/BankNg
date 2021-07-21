@@ -1,7 +1,9 @@
 import { Directive } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable, of } from "rxjs";
+import { BaseRequestDTO } from "src/app/model/DTO/base-request-DTO";
 import { BaseResponseDTO } from "src/app/model/DTO/base-response-DTO";
+import { MySorter } from "src/app/model/DTO/my-sorter";
 import { MyDataService } from "src/app/services/my-data.service";
 import { MyBaseComponent } from "./my-base.component";
 
@@ -17,6 +19,7 @@ export abstract class MyBaseTableComponent extends MyBaseComponent {
     }
 
     public items: any;
+    public sorter: MySorter = new MySorter();
 
     initForm() {
         this.items = [];
@@ -27,7 +30,10 @@ export abstract class MyBaseTableComponent extends MyBaseComponent {
     }
 
     private fetchData_INT(name: string): void {
-        this.myDataService.getRequest(name)
+        let req = new BaseRequestDTO();
+        req.sorter = this.sorter;
+        console.log(this.sorter)
+        this.myDataService.postRequest(name, req)
             .subscribe(
                 (res) => {
                     if(res.status == 0) {
@@ -80,4 +86,6 @@ export abstract class MyBaseTableComponent extends MyBaseComponent {
     }
 
     abstract fetchDataOk();
+
+    abstract sort(event: any);
 }
