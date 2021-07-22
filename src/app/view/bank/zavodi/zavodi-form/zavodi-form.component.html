@@ -15,11 +15,21 @@
             <form action="#">
                 <div class="field">
                     <label for="naziv">Naziv: </label>
+                    <ng-container *ngIf="!isValid.naziv">
+                        <div class="ui pointing below red basic label">
+                            {{nazivInvalidMsg}}
+                        </div>
+                    </ng-container>
                     <input type="text" id="naziv" name="naziv" placeholder="Upisi Naziv Zavoda" 
                             [(ngModel)]="item.data.naziv">
                 </div>
                 <div class="field">
                     <label for="sifra">Sifra: </label>
+                    <ng-container *ngIf="!isValid.sif_zavod">
+                        <div class="ui pointing below red basic label">
+                            {{sifZavodInvalidMsg}}
+                        </div>
+                    </ng-container>
                     <input type="text" id="sifra" name="sifra" placeholder="Upisi Sifru Zavoda" 
                             [(ngModel)]="item.data.sif_zavod">
                 </div>

@@ -11,6 +11,9 @@ import { MyBaseFormComponent } from 'src/app/shared/form/my-base-form-component'
   styleUrls: ['./mjesta-form.component.css']
 })
 export class MjestaFormComponent extends MyBaseFormComponent {
+  public isValid = {"pbr": true, "naziv": true};
+  public pbrInvalidMsg: string = '';
+  public nazivInvalidMsg: string = '';
   
   constructor(
     private routerForm1: Router,
@@ -34,6 +37,25 @@ export class MjestaFormComponent extends MyBaseFormComponent {
   saveFormOK() { }
 
   validate() {
-    return true;
+    this.isValid.pbr = true;
+    this.isValid.naziv = true;
+    this.errMsg = '';
+
+    if(this.item.data.pbr && this.item.data.naziv) {
+      return true;
+    }
+    else {
+      if(!this.item.data.pbr) {
+        this.isValid.pbr = false;
+        this.pbrInvalidMsg = 'Molim unesite postanski broj.';
+      }
+
+      if(!this.item.data.naziv) {
+        this.isValid.naziv = false;
+        this.nazivInvalidMsg = 'Molim unesite naziv.'
+      }
+
+      return false;
+    }
   }
 }

@@ -15,11 +15,21 @@
             <form action="#">
                 <div class="field">
                     <label for="pbr">Postanski Broj: </label>
+                    <ng-container *ngIf="!isValid.pbr">
+                        <div class="ui pointing below red basic label">
+                            {{pbrInvalidMsg}}
+                        </div>
+                    </ng-container>
                     <input type="text" id="pbr" name="pbr" placeholder="Upisi Postanski Broj Mjesta"
                             [(ngModel)]="item.data.pbr">
                 </div>
                 <div class="field">
                     <label for="naziv">Naziv: </label>
+                    <ng-container *ngIf="!isValid.naziv">
+                        <div class="ui pointing below red basic label">
+                            {{nazivInvalidMsg}}
+                        </div>
+                    </ng-container>
                     <input type="text" id="naziv" name="naziv" placeholder="Upisi Naziv Mjesta" 
                             [(ngModel)]="item.data.naziv">
                 </div>

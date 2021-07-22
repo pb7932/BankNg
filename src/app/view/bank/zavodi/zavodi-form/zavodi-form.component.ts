@@ -10,6 +10,9 @@ import { MyBaseFormComponent } from 'src/app/shared/form/my-base-form-component'
   styleUrls: ['./zavodi-form.component.css']
 })
 export class ZavodiFormComponent extends MyBaseFormComponent {
+  public isValid = {"naziv": true, "sif_zavod": true};
+  public sifZavodInvalidMsg: string = '';
+  public nazivInvalidMsg: string = '';
 
   constructor(
     private routerForm1: Router,
@@ -31,7 +34,26 @@ export class ZavodiFormComponent extends MyBaseFormComponent {
   fetchDataOK() { }
 
   validate() {
-    return true;
+    this.isValid.sif_zavod = true;
+    this.isValid.naziv = true;
+    this.errMsg = '';
+
+    if(this.item.data.sif_zavod && this.item.data.naziv) {
+      return true;
+    }
+    else {
+      if(!this.item.data.sif_zavod) {
+        this.isValid.sif_zavod = false;
+        this.sifZavodInvalidMsg = 'Molim unesite postanski broj.';
+      }
+
+      if(!this.item.data.naziv) {
+        this.isValid.naziv = false;
+        this.nazivInvalidMsg = 'Molim unesite naziv.'
+      }
+
+      return false;
+    }
   }
 
   return() {

@@ -104,6 +104,7 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
         return this.itemId;
     }
 
+    //here we fill the base-request-dto with all object it needs
     configureRequestObject(pField: string): BaseRequestDTO {
         let req = new BaseRequestDTO();
         let sorter = new MySorter();
