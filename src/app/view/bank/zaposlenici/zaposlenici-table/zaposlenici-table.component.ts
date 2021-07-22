@@ -47,4 +47,8 @@ export class ZaposleniciTableComponent extends MyBaseTableComponent {
     this.fetchData();
   }
 
+  getNextPage(event: any) {
+    this.fetchData();
+  }
+
 }

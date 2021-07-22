@@ -30,6 +30,13 @@
             </tr>
         </ng-container>
     </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="3">
+                <app-pager [pager]="pager" (event)="getNextPage($event)"></app-pager>
+            </th>
+        </tr>
+    </tfoot>
     <ng-container *ngIf="!items">
         <p class="ui warning message">{{errMsg}}</p>
     </ng-container>

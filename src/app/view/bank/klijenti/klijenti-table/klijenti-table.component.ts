@@ -44,4 +44,8 @@ export class KlijentiTableComponent extends MyBaseTableComponent {
   sort(event: any) {
     this.fetchData()
   }
+
+  getNextPage(event: any) {
+    this.fetchData();
+  }
 }

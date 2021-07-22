@@ -34,4 +34,8 @@ export class MjestaTableComponent extends MyBaseTableComponent {
     this.fetchData();
   }
 
+  getNextPage(event: any) {
+    this.fetchData();
+  }
+
 }

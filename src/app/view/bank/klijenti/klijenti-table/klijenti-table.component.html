@@ -1,4 +1,4 @@
-<table class="ui stripped table" style="margin-top: 1rem;">
+<table class="ui fixed stripped table" style="margin-top: 1rem;">
     <thead>
         <tr>
             <th>
@@ -44,6 +44,13 @@
             </tr>
         </ng-container>
     </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="5">
+                <app-pager [pager]="pager" (event)="getNextPage($event)"></app-pager>
+            </th>
+        </tr>
+    </tfoot>
 </table>
 <ng-container *ngIf="errMsg">
     <p class='ui warning message'>{{errMsg}}</p>
