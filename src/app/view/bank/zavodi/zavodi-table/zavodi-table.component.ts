@@ -36,4 +36,8 @@ export class ZavodiTableComponent extends MyBaseTableComponent {
   sort(event: any) {
     this.fetchData()
   }
+
+  getNextPage(event: any) {
+    this.fetchData();
+  }
 }

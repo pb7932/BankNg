@@ -14,7 +14,8 @@ import { PagerComponent } from './pager/pager.component';
     CommonModule
   ],
   exports: [
-    SorterComponent
+    SorterComponent,
+    PagerComponent
   ]
 })
 export class MyComponentsModule { }
