@@ -88,10 +88,12 @@ export class KlijentiFormComponent extends MyBaseFormComponent {
     let osoba = new OsobaDTO();
     osoba = this.osobe.find(o => o.id == this.item.data.id_osoba);
 
-    this.selectedOsoba.ime = osoba.ime;
-    this.selectedOsoba.prezime = osoba.prezime;
-    this.selectedOsoba.adresa = osoba.adresa;
-    this.selectedOsoba.pbr = osoba.pbr;
+    if(osoba) {
+      this.selectedOsoba.ime = osoba.ime;
+      this.selectedOsoba.prezime = osoba.prezime;
+      this.selectedOsoba.adresa = osoba.adresa;
+      this.selectedOsoba.pbr = osoba.pbr;
+    }
   }
 
   //make sure the date is in proper form

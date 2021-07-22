@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SorterComponent } from './sorter/sorter.component';
+import { PagerComponent } from './pager/pager.component';
 
 
 
 @NgModule({
   declarations: [
-    SorterComponent
+    SorterComponent,
+    PagerComponent
   ],
   imports: [
     CommonModule
