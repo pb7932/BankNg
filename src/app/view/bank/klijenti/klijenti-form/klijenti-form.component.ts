@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { KlijentDTO, KlijentiHelper, KlijentRequestDTO } from 'src/app/model/bank/klijenti/klijenti';
 import { MjestaHelper, MjestoDTO } from 'src/app/model/bank/mjesta/mjesta';
 import { OsobaDTO, OsobaRequestDTO, OsobeHelper } from 'src/app/model/bank/osobe/osobe';
+import { BaseRequestDTO } from 'src/app/model/DTO/base-request-DTO';
+import { MySorter } from 'src/app/model/DTO/my-sorter';
 import { MyDataService } from 'src/app/services/my-data.service';
 import { MyBaseFormComponent } from 'src/app/shared/form/my-base-form-component';
 import { MyDateHelper } from 'src/app/shared/myDateHelper';
@@ -44,7 +46,9 @@ export class KlijentiFormComponent extends MyBaseFormComponent {
   }
 
   getMjestaSelect() {
-    this.myDataService1.getRequest('get' + MjestaHelper.routeName).subscribe(
+    let req = this.configureRequestObject('pbr');
+
+    this.myDataService1.postRequest('get' + MjestaHelper.routeName, req).subscribe(
       res => {
         this.mjesta = res.items;
       }
@@ -52,16 +56,18 @@ export class KlijentiFormComponent extends MyBaseFormComponent {
   }
 
   getOsobeSelect() {
-    this.myDataService1.getRequest('get' + OsobeHelper.routeName).subscribe(
+    let req = this.configureRequestObject('ime');
+
+    this.myDataService1.postRequest('get' + OsobeHelper.routeName, req).subscribe(
       res => {
         this.osobe = res.items;
 
-        this.getOsobeIfFromRoute();
+        this.getOsobeIdFromRoute();
       }
     )
   }
 
-  getOsobeIfFromRoute() {
+  getOsobeIdFromRoute() {
     let idOsoba = this.routeForm1.snapshot.paramMap.get('io');
 
     this.item.data.id_osoba = +idOsoba;

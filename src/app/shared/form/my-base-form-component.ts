@@ -1,6 +1,8 @@
 import { ThrowStmt } from "@angular/compiler";
 import { Directive } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { BaseRequestDTO } from "src/app/model/DTO/base-request-DTO";
+import { MySorter } from "src/app/model/DTO/my-sorter";
 import { MyDataService } from "src/app/services/my-data.service";
 import { MyBaseComponent } from "./my-base.component";
 
@@ -100,5 +102,14 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
         })
 
         return this.itemId;
+    }
+
+    configureRequestObject(pField: string): BaseRequestDTO {
+        let req = new BaseRequestDTO();
+        let sorter = new MySorter();
+        MySorter.updateSorter(sorter, pField, 0);
+        req.sorter = sorter;
+
+        return req;
     }
 }

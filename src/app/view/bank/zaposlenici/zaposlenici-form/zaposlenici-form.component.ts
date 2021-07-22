@@ -5,6 +5,8 @@ import { MjestaHelper, MjestoDTO } from 'src/app/model/bank/mjesta/mjesta';
 import { OsobaDTO, OsobeHelper } from 'src/app/model/bank/osobe/osobe';
 import { ZaposleniciHelper } from 'src/app/model/bank/zaposlenici/zaposlenici';
 import { ZavodDTO, ZavodiHelper, ZavodRequestDTO } from 'src/app/model/bank/zavodi/zavodi';
+import { BaseRequestDTO } from 'src/app/model/DTO/base-request-DTO';
+import { MySorter } from 'src/app/model/DTO/my-sorter';
 import { MyDataService } from 'src/app/services/my-data.service';
 import { MyBaseFormComponent } from 'src/app/shared/form/my-base-form-component';
 
@@ -44,7 +46,9 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
   }
 
   getOsobeSelect() {
-    this.myDataService1.getRequest('get' + OsobeHelper.routeName).subscribe(
+    let req = this.configureRequestObject('ime');
+
+    this.myDataService1.postRequest('get' + OsobeHelper.routeName, req).subscribe(
       res => {
         this.osobe = res.items;
 
@@ -54,7 +58,9 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
   }
   
   getZavodiSelect() {
-    this.myDataService1.getRequest('get' + ZavodiHelper.routeName).subscribe(
+    let req = this.configureRequestObject('sif_zavod');
+    
+    this.myDataService1.postRequest('get' + ZavodiHelper.routeName, req).subscribe(
       res => {
         this.zavodi = res.items;
 
@@ -64,7 +70,9 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
   }
 
   getMjestaSelect() {
-    this.myDataService1.getRequest('get' + MjestaHelper.routeName).subscribe(
+    let req = this.configureRequestObject('pbr');
+
+    this.myDataService1.postRequest('get' + MjestaHelper.routeName, req).subscribe(
       res => {
         this.mjesta = res.items;
       }
