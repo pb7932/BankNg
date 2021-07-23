@@ -22,9 +22,9 @@
                     </ng-container>
                     <input type="text" id="pbr" name="pbr" 
                             placeholder="Upisi Postanski Broj Mjesta"
-                            [ngModel]="item.data.pbr" 
+                            [(ngModel)]="item.data.pbr" 
                             (change)="onInputChange()"
-                            disabled>
+                            [disabled]="isEdit">
                 </div>
                 <div class="field">
                     <label for="naziv">Naziv: </label>

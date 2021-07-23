@@ -32,7 +32,11 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
   public mjesta: MjestoDTO[];
   
   myNgFormOnInit() {
-    
+    if(!this.isEdit) {
+      this.getOsobeSelect();
+      this.getZavodiSelect();
+      this.getMjestaSelect();
+    }
   }
 
   initForm() {
@@ -49,7 +53,7 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
     this.myDataService1.postRequest('get' + OsobeHelper.routeName, req).subscribe(
       res => {
         this.osobe = res.items;
-
+        console.log(this.osobe)
         this.getOsobeIdFromRoute();
       }
     )
@@ -107,7 +111,7 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
    }
 
   validate() {
-    if(this.itemId != this.item.data.id_osoba) {
+    if(this.itemId && this.itemId != this.item.data.id_osoba) {
       this.errMsg = 'Ne mozete mijenjati osobu, samo njen zavod.'
       return false;
     }

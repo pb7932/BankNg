@@ -48,6 +48,12 @@
                         Spremi i vrati se natrag
                     </button>
                 </ng-container>
+                <ng-container *ngIf="isEdit">
+                    <button class="ui black button" 
+                        (click)="delete();">
+                        Obrisi
+                </button>
+                </ng-container>
             </form>
         </div>
         <ng-container *ngIf="errMsg">

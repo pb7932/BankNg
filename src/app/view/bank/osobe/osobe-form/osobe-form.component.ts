@@ -56,7 +56,9 @@ export class OsobeFormComponent extends MyBaseFormComponent {
 
   //dohvati mjesta za select na formi
   getMjestaSelect() {
-    this.myDataService1.getRequest('get' + MjestaHelper.routeName).subscribe(
+    let req = this.configureRequestObject('pbr');
+
+    this.myDataService1.postRequest('get' + MjestaHelper.routeName, req).subscribe(
       res => {
         this.mjesta = res.items;
       }

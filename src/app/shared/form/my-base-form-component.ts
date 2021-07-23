@@ -19,7 +19,7 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
 
         this.checkIsEdit();
         this.initForm();
-        
+        this.setOperation();  
     }
 
     public myNgOnInit() {
@@ -62,8 +62,6 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
     //save new item, validate it first
     public saveForm() {
         if(this.validate()) { 
-            this.setOperation();  
-
             this.myDataService.postRequest(`${this.routeCtxForm}save`, this.item).subscribe(
               res => {
                   if(res.status == 1) {
@@ -89,6 +87,9 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
     public reload() {
         this.initForm();
         this.fetchData(`get${this.routeCtxForm}byid`);
+        this.saved = false;
+        this.changed = false;
+        this.errMsg = '';
     }
 
     //validate form inputs before passing data to repo
@@ -100,7 +101,6 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
             this.itemId = params.id
         })
 
-        console.log(this.itemId)
         return this.itemId;
     }
 

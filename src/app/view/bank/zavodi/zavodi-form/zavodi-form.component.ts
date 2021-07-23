@@ -67,4 +67,10 @@ export class ZavodiFormComponent extends MyBaseFormComponent {
   setQueryParamAndNavigateBack() {
     this.routerForm1.navigate(['/zaposlenici-form-new', {iz: this.itemId}])
   }
+
+  delete() {
+    this.item.op = 'd';
+
+    this.saveForm();
+  }
 }
