@@ -19,7 +19,13 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
 
         this.checkIsEdit();
         this.initForm();
-        this.fetchData(`get${routeCtxForm}byid`);
+        
+    }
+
+    public myNgOnInit() {
+        this.fetchData(`get${this.routeCtxForm}byid`);
+
+        this.myNgFormOnInit();
     }
 
     public item: any; //item to create or edit
@@ -33,6 +39,8 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
     //initialize new dto
     abstract initForm();
 
+    abstract myNgFormOnInit();
+    
     //if form is in edit, fetch the item from repo and fill form with data, else do nothing
     public fetchData(name: string) {
         let id = this.getIdFromUrl();
@@ -77,16 +85,6 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
 
     abstract saveFormOK();
 
-    //update edited item
-    public editForm() {
-
-    }
-
-    //delete selected item
-    public delete() {
-
-    }
-
     //put form in initial state
     public reload() {
         this.initForm();
@@ -102,6 +100,7 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
             this.itemId = params.id
         })
 
+        console.log(this.itemId)
         return this.itemId;
     }
 

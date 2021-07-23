@@ -23,10 +23,11 @@
                     <label>Osoba: </label>
                     <select class="ui fluid search dropdown" name="osoba"
                         [(ngModel)]="item.data.id_osoba" 
-                        (change)="onSelectOsoba()">
+                        (change)="onSelectOsoba()"
+                        [disabled]="isEdit">
                         <ng-container *ngFor="let osoba of osobe">
                             <option value="{{osoba.id}}">
-                                {{osoba.ime}} {{osoba.prezime}}, {{osoba.pbr}}, {{osoba.adresa}}
+                                {{osoba.ime}} {{osoba.prezime}}, {{osoba.id}}
                             </option>
                         </ng-container>
                     </select>
@@ -68,10 +69,10 @@
                     <label>Zavod: </label>
                     <select class="ui fluid search dropdown" name="zavod"
                         [(ngModel)]="item.data.id_zavod" 
-                        (change)="onSelectZavod()">
+                        (change)="onSelectZavod(); onInputChange();">
                         <ng-container *ngFor="let zavod of zavodi">
                             <option value="{{zavod.id}}">
-                                {{zavod.naziv}}, {{zavod.sif_zavod}}
+                                {{zavod.naziv}}
                             </option>
                         </ng-container>
                     </select>

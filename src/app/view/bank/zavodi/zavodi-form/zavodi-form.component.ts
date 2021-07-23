@@ -22,7 +22,7 @@ export class ZavodiFormComponent extends MyBaseFormComponent {
     super(routerForm1, routeForm1, myDataService1, ZavodiHelper.routeName)
   }
 
-  myNgOnInit() { }
+  myNgFormOnInit() { }
 
   initForm() {
     this.item = new ZavodRequestDTO();

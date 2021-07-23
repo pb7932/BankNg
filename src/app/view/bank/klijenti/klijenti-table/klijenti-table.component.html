@@ -36,7 +36,7 @@
     <tbody>
         <ng-container *ngIf="items">
             <tr *ngFor="let item of items">
-                <td>{{item.child.ime}}</td>
+                <td><a [routerLink]="[editFormRoute, item.id]">{{item.child.ime}}</a></td>
                 <td>{{item.child.prezime}}</td>
                 <td>{{item.child.adresa}}</td>
                 <td>{{item.child.pbr}}</td>

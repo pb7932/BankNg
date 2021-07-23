@@ -23,7 +23,7 @@ export class MjestaFormComponent extends MyBaseFormComponent {
     super(routerForm1, routeForm1, myDataService1, MjestaHelper.routeName)
   }
 
-  myNgOnInit() {
+  myNgFormOnInit() {
   
   }
 

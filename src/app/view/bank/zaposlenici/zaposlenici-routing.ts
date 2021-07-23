@@ -7,4 +7,7 @@ export const ZaposleniciRoutes: Routes = [
     {
         path: 'zaposlenici-form-new', loadChildren: () => import('../zaposlenici/zaposlenici-form/zaposlenici-form.module').then(m => m.ZaposleniciFormModule)
     },
+    {
+        path: 'zaposlenici-form-edit/:id', loadChildren: () => import('../zaposlenici/zaposlenici-form/zaposlenici-form.module').then(m => m.ZaposleniciFormModule)
+    },
 ]

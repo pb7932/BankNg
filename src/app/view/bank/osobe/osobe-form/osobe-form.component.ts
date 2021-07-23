@@ -27,7 +27,7 @@ export class OsobeFormComponent extends MyBaseFormComponent {
     super(routerForm1, routeForm1, myDataService1, OsobeHelper.routeName);
   }
 
-  myNgOnInit() { 
+  myNgFormOnInit() { 
     this.getMjestaSelect();
   }
 

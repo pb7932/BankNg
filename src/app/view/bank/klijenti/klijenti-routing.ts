@@ -7,5 +7,8 @@ export const KlijentiRoutes: Routes = [
     },
     {
         path: 'klijenti-form-new', loadChildren: () => import('../klijenti/klijenti-form/klijenti-form.module').then(m => m.KlijentiFormModule)
+    },
+    {
+        path: 'klijenti-form-edit/:id', loadChildren: () => import('../klijenti/klijenti-form/klijenti-form.module').then(m => m.KlijentiFormModule)
     }
 ]

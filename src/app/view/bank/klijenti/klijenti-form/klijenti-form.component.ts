@@ -29,7 +29,7 @@ export class KlijentiFormComponent extends MyBaseFormComponent {
   public osobe: OsobaDTO[];
   public selectedOsoba: OsobaDTO;
   
-  myNgOnInit() { 
+  myNgFormOnInit() { 
     jQuery('.ui.calendar').calendar({
       type: 'date'
     });
@@ -77,7 +77,9 @@ export class KlijentiFormComponent extends MyBaseFormComponent {
 
   saveFormOK() { }
 
-  fetchDataOK() { }
+  fetchDataOK() { 
+    console.log(this.item)
+  }
 
   validate() {
     return true;

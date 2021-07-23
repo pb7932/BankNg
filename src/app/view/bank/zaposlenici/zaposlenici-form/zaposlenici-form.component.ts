@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MjestaHelper, MjestoDTO } from 'src/app/model/bank/mjesta/mjesta';
 import { OsobaDTO, OsobeHelper } from 'src/app/model/bank/osobe/osobe';
-import { ZaposleniciHelper } from 'src/app/model/bank/zaposlenici/zaposlenici';
+import { ZaposleniciHelper, ZaposlenikDTO, ZaposlenikRequestDTO } from 'src/app/model/bank/zaposlenici/zaposlenici';
 import { ZavodDTO, ZavodiHelper, ZavodRequestDTO } from 'src/app/model/bank/zavodi/zavodi';
 import { BaseRequestDTO } from 'src/app/model/DTO/base-request-DTO';
 import { MySorter } from 'src/app/model/DTO/my-sorter';
@@ -31,15 +31,13 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
   public selectedZavod: ZavodDTO;
   public mjesta: MjestoDTO[];
   
-  myNgOnInit() {
-    this.getOsobeSelect();
-    this.getZavodiSelect();
-    this.getMjestaSelect();
+  myNgFormOnInit() {
+    
   }
 
   initForm() {
-    this.item = new ZavodRequestDTO();
-    this.item.data = new ZavodDTO();
+    this.item = new ZaposlenikRequestDTO();
+    this.item.data = new ZaposlenikDTO();
 
     this.selectedOsoba = new OsobaDTO();
     this.selectedZavod = new ZavodDTO();
@@ -59,7 +57,7 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
   
   getZavodiSelect() {
     let req = this.configureRequestObject('sif_zavod');
-    
+
     this.myDataService1.postRequest('get' + ZavodiHelper.routeName, req).subscribe(
       res => {
         this.zavodi = res.items;
@@ -82,15 +80,18 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
   getOsobeIdFromRoute() {
     let idOsoba = this.routeForm1.snapshot.paramMap.get('io');
 
-    this.item.data.id_osoba = +idOsoba;
-
+    if(idOsoba) {
+      this.item.data.id_osoba = +idOsoba;
+    }
     this.onSelectOsoba();
   }
 
   getZavodiIdFromRoute() {
     let idZavod = this.routeForm1.snapshot.paramMap.get('iz');
 
-    this.item.data.id_zavod = +idZavod;
+    if(idZavod) {
+      this.item.data.id_zavod = +idZavod;
+    }
 
     this.onSelectZavod();
   }
@@ -99,9 +100,18 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
 
   }
 
-  fetchDataOK() { }
+  fetchDataOK() {
+    this.getOsobeSelect();
+    this.getZavodiSelect();
+    this.getMjestaSelect();
+   }
 
   validate() {
+    if(this.itemId != this.item.data.id_osoba) {
+      this.errMsg = 'Ne mozete mijenjati osobu, samo njen zavod.'
+      return false;
+    }
+
     if(!this.item.data.id_osoba || !this.item.data.id_zavod) {
       this.errMsg = 'Molim unesite sve podatke.';
       return false;
