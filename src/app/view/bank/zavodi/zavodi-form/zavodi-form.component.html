@@ -50,9 +50,9 @@
                 </ng-container>
                 <ng-container *ngIf="isEdit">
                     <button class="ui black button" 
-                        (click)="delete();">
+                        (click)="showDeleteModal();">
                         Obrisi
-                </button>
+                    </button>
                 </ng-container>
             </form>
         </div>
@@ -60,7 +60,9 @@
             <p class="ui warning message">{{errMsg}}</p>
         </ng-container>
         <ng-container *ngIf="saved">
-            <p class="ui success message">Podatci uspjesno spremljeni!</p>
+            <p *ngIf="!isEdit" class="ui success message">Podatci uspjesno spremljeni!</p>
+            <p *ngIf="isEdit" class="ui success message">Radnja uspjesno odradena!</p>
         </ng-container>
     </div>
+    <app-delete-modal (event)="onAccept($event)"></app-delete-modal>
 </div>

@@ -10,6 +10,8 @@ import { MySorter } from 'src/app/model/DTO/my-sorter';
 import { MyDataService } from 'src/app/services/my-data.service';
 import { MyBaseFormComponent } from 'src/app/shared/form/my-base-form-component';
 
+declare var jQuery: any;
+
 @Component({
   selector: 'app-zaposlenici-form',
   templateUrl: './zaposlenici-form.component.html',
@@ -32,6 +34,7 @@ export class ZaposleniciFormComponent extends MyBaseFormComponent {
   public mjesta: MjestoDTO[];
   
   myNgFormOnInit() {
+
     if(!this.isEdit) {
       this.getOsobeSelect();
       this.getZavodiSelect();

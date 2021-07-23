@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { KlijentiFormRoutingModule } from './klijenti-form-routing.module';
 import { KlijentiFormComponent } from './klijenti-form.component';
 import { FormsModule } from '@angular/forms';
+import { MyComponentsModule } from 'src/app/view/components/my-components.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    KlijentiFormRoutingModule
+    KlijentiFormRoutingModule,
+    MyComponentsModule
   ]
 })
 export class KlijentiFormModule { }

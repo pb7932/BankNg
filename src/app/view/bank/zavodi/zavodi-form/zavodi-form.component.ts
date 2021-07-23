@@ -4,6 +4,8 @@ import { ZavodDTO, ZavodiHelper, ZavodRequestDTO } from 'src/app/model/bank/zavo
 import { MyDataService } from 'src/app/services/my-data.service';
 import { MyBaseFormComponent } from 'src/app/shared/form/my-base-form-component';
 
+declare var jQuery: any;
+
 @Component({
   selector: 'app-zavodi-form',
   templateUrl: './zavodi-form.component.html',
@@ -68,9 +70,5 @@ export class ZavodiFormComponent extends MyBaseFormComponent {
     this.routerForm1.navigate(['/zaposlenici-form-new', {iz: this.itemId}])
   }
 
-  delete() {
-    this.item.op = 'd';
-
-    this.saveForm();
-  }
+ 
 }

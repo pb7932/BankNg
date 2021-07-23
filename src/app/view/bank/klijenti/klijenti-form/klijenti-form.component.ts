@@ -8,6 +8,7 @@ import { MySorter } from 'src/app/model/DTO/my-sorter';
 import { MyDataService } from 'src/app/services/my-data.service';
 import { MyBaseFormComponent } from 'src/app/shared/form/my-base-form-component';
 import { MyDateHelper } from 'src/app/shared/myDateHelper';
+
 declare var jQuery: any;
 
 @Component({
@@ -45,6 +46,12 @@ export class KlijentiFormComponent extends MyBaseFormComponent {
     this.selectedOsoba = new OsobaDTO();
   }
 
+  saveFormOK() { }
+
+  fetchDataOK() { 
+    console.log(this.item)
+  }
+
   getMjestaSelect() {
     let req = this.configureRequestObject('pbr');
 
@@ -73,12 +80,6 @@ export class KlijentiFormComponent extends MyBaseFormComponent {
     this.item.data.id_osoba = +idOsoba;
 
     this.onSelect();
-  }
-
-  saveFormOK() { }
-
-  fetchDataOK() { 
-    console.log(this.item)
   }
 
   validate() {

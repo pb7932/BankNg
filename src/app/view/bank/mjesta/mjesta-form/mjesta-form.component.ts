@@ -5,6 +5,8 @@ import { MjestaHelper, MjestoDTO, MjestoRequestDTO } from 'src/app/model/bank/mj
 import { MyDataService } from 'src/app/services/my-data.service';
 import { MyBaseFormComponent } from 'src/app/shared/form/my-base-form-component';
 
+declare var jQuery: any;
+
 @Component({
   selector: 'app-mjesta-form',
   templateUrl: './mjesta-form.component.html',
@@ -23,9 +25,7 @@ export class MjestaFormComponent extends MyBaseFormComponent {
     super(routerForm1, routeForm1, myDataService1, MjestaHelper.routeName)
   }
 
-  myNgFormOnInit() {
-  
-  }
+  myNgFormOnInit() { }
 
   //what if there is no item
   fetchDataOK() { 

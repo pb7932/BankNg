@@ -8,6 +8,8 @@ import {Location} from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { SelectMultipleControlValueAccessor } from '@angular/forms';
 
+declare var jQuery: any;
+
 @Component({
   selector: 'app-osobe-form',
   templateUrl: './osobe-form.component.html',

@@ -73,13 +73,21 @@
                     </div>
                 </div>
                 <button class="ui button" (click)="saveForm()">Spremi</button>
+                <ng-container *ngIf="isEdit">
+                    <button class="ui black button" 
+                        (click)="showDeleteModal();">
+                        Obrisi
+                    </button>
+                </ng-container>
             </form>
         </div>
         <ng-container *ngIf="errMsg">
             <p class="ui warning message">{{errMsg}}</p>
         </ng-container>
         <ng-container *ngIf="saved">
-            <p class="ui success message">Podatci uspjesno spremljeni!</p>
+            <p *ngIf="!isEdit" class="ui success message">Podatci uspjesno spremljeni!</p>
+            <p *ngIf="isEdit" class="ui success message">Radnja uspjesno odradena!</p>
         </ng-container>
     </div>
+    <app-delete-modal (event)="onAccept($event)"></app-delete-modal>
 </div>

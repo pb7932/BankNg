@@ -1,0 +1,22 @@
+<div class="ui basic modal">
+    <div class="ui icon header">
+        <i class="trash icon"></i>
+        Delete data
+    </div>
+    <div class="content">
+        <p>Jeste li sigurni da želite obrisati podatke?</p>
+    </div>
+    <div class="actions">
+        <div class="ui green ok inverted button"
+            (click)="accept()">
+            <i class="ui green ok inverted button"></i>
+            Da
+        </div>
+        <div class="ui red basic cancel iverted button"
+            (click)="decline()">
+            <i class="remove icon"></i>
+            Ne
+        </div>
+    </div>
+
+</div>

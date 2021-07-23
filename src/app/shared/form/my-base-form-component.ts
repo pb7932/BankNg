@@ -6,6 +6,8 @@ import { MySorter } from "src/app/model/DTO/my-sorter";
 import { MyDataService } from "src/app/services/my-data.service";
 import { MyBaseComponent } from "./my-base.component";
 
+declare var jQuery: any;
+
 @Directive()
 export abstract class MyBaseFormComponent extends MyBaseComponent {
     constructor (
@@ -25,9 +27,17 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
     public myNgOnInit() {
         this.fetchData(`get${this.routeCtxForm}byid`);
 
+        if(this.isEdit) {
+            jQuery('.ui.basic.modal').modal();
+        }
+
         this.myNgFormOnInit();
     }
 
+    ngOnDestroy(): void {
+        jQuery('.ui.basic.modal').remove();
+    }
+    
     public item: any; //item to create or edit
     public itemId: number; //items id in edit form
     public isEdit: boolean; //flag => is form for new item or for update 
@@ -135,5 +145,16 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
         else {
             this.item.op = 'c'
         }
+    }
+
+    showDeleteModal() {
+        jQuery('.ui.basic.modal').modal('show');
+    } 
+    
+    onAccept(event: any) {
+      if(event) {
+        this.item.op = 'd';
+        this.saveForm();
+      }
     }
 }
