@@ -6,5 +6,8 @@ export const ZavodiRoutes: Routes = [
     },
     {
         path: 'zavodi-form-new', loadChildren: () => import('../zavodi/zavodi-form/zavodi-form.module').then(m => m.ZavodiFormModule)
+    },
+    {
+        path: 'zavodi-form-edit/:id', loadChildren: () => import('../zavodi/zavodi-form/zavodi-form.module').then(m => m.ZavodiFormModule)
     }
 ];
