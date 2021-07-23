@@ -27,7 +27,10 @@ export class MjestaFormComponent extends MyBaseFormComponent {
   
   }
 
-  fetchDataOK() { }
+  //what if there is no item
+  fetchDataOK() { 
+    
+  }
 
   initForm() {
     this.item = new MjestoRequestDTO();
@@ -47,12 +50,12 @@ export class MjestaFormComponent extends MyBaseFormComponent {
     else {
       if(!this.item.data.pbr) {
         this.isValid.pbr = false;
-        this.pbrInvalidMsg = 'Molim unesite postanski broj.';
+        this.pbrInvalidMsg = this.requiredMsg;
       }
 
       if(!this.item.data.naziv) {
         this.isValid.naziv = false;
-        this.nazivInvalidMsg = 'Molim unesite naziv.'
+        this.nazivInvalidMsg = this.requiredMsg;
       }
 
       return false;

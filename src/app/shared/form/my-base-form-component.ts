@@ -17,19 +17,18 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
     {
         super(routerForm, routeForm, routeCtxForm);
 
-        this.isEdit = false;
-        this.saved = false;
-        this.errMsg = '';
-
+        this.checkIsEdit();
         this.initForm();
         this.fetchData(`get${routeCtxForm}byid`);
     }
 
     public item: any; //item to create or edit
     public itemId: number; //items id in edit form
-    public isEdit: false; //flag => is form for new item or for update 
-    public saved: boolean; //when form is validated and item is succesfully saved or updated
-    public errMsg: string; //error message
+    public isEdit: boolean; //flag => is form for new item or for update 
+    public saved: boolean = false; //when form is validated and item is succesfully saved or updated
+    public errMsg: string = ''; //error message
+    public requiredMsg: string = 'Molimo unesite podatak.' //message for not inputed data
+    public changed: boolean = false; //if data is not changed dont disable Spremi button
 
     //initialize new dto
     abstract initForm();
@@ -42,8 +41,8 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
 
         this.myDataService.getById(name, id).subscribe(
             data => {
-                this.item = data.item;
-
+                this.item.data = data.item;
+                
                 this.fetchDataOK();
             }
         )
@@ -54,7 +53,9 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
 
     //save new item, validate it first
     public saveForm() {
-        if(this.validate()) {   
+        if(this.validate()) { 
+            this.setOperation();  
+
             this.myDataService.postRequest(`${this.routeCtxForm}save`, this.item).subscribe(
               res => {
                   if(res.status == 1) {
@@ -112,5 +113,28 @@ export abstract class MyBaseFormComponent extends MyBaseComponent {
         req.sorter = sorter;
 
         return req;
+    }
+
+    checkIsEdit() {
+        if(this.routerForm.url.includes('edit')) {
+            this.isEdit = true;
+        }
+        else {
+            this.isEdit = false;
+        }
+    }
+
+    onInputChange() {
+        this.changed = true;
+    }
+
+    //sets the operation to post, update or delete
+    setOperation() {
+        if(this.isEdit) {
+          this.item.op = 'u'
+        }
+        else {
+            this.item.op = 'c'
+        }
     }
 }

@@ -8,4 +8,6 @@ export class BaseRequestDTO {
     public sorter?: MySorter;
 
     public pager?: MyPager;
+
+    public op: string;
 }

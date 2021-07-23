@@ -7,7 +7,7 @@
             <div class="ui top attached label">Izmijeni Podatke Mjesta</div>
         </ng-container>
         <div class="ui five column grid">
-            <div class="column">
+            <div class="column" *ngIf="!isEdit">
                 <button class="ui primary button" (click)="reload()">Ponovno ucitaj</button>
             </div>
         </div>
@@ -20,8 +20,11 @@
                             {{pbrInvalidMsg}}
                         </div>
                     </ng-container>
-                    <input type="text" id="pbr" name="pbr" placeholder="Upisi Postanski Broj Mjesta"
-                            [(ngModel)]="item.data.pbr">
+                    <input type="text" id="pbr" name="pbr" 
+                            placeholder="Upisi Postanski Broj Mjesta"
+                            [ngModel]="item.data.pbr" 
+                            (change)="onInputChange()"
+                            disabled>
                 </div>
                 <div class="field">
                     <label for="naziv">Naziv: </label>
@@ -30,10 +33,15 @@
                             {{nazivInvalidMsg}}
                         </div>
                     </ng-container>
-                    <input type="text" id="naziv" name="naziv" placeholder="Upisi Naziv Mjesta" 
-                            [(ngModel)]="item.data.naziv">
+                    <input type="text" id="naziv" name="naziv" 
+                            placeholder="Upisi Naziv Mjesta" 
+                            [(ngModel)]="item.data.naziv" 
+                            (change)="onInputChange()">
                 </div>
-                <button class="ui button" (click)="saveForm()">Spremi</button>
+                <button class="ui button" (click)="saveForm()"
+                        [disabled]="isEdit && !changed">
+                        Spremi
+                </button>
             </form>
         </div>
         <ng-container *ngIf="errMsg">

@@ -6,5 +6,8 @@ export const MjestaRoutes: Routes = [
     },
     {
         path: 'mjesta-form-new', loadChildren: () => import('../mjesta/mjesta-form/mjesta-form.module').then(m => m.MjestaFormModule)
+    },
+    {
+        path: 'mjesta-form-edit/:id', loadChildren: () => import('../mjesta/mjesta-form/mjesta-form.module').then(m => m.MjestaFormModule)
     }
 ];
